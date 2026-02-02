@@ -95,7 +95,7 @@ This repository documents my journey through the Data Engineering Zoomcamp, focu
 - **VM Name:** de-zoomcamp-vm
 - **Zone:** us-west1-a
 - **Machine Type:** e2-medium
-- **External IP:** 34.168.161.18
+- **External IP:** *****
 
 ### Local Tools (Mac)
 - VS Code with Remote-SSH extension
