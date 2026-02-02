@@ -135,7 +135,7 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 
 - **Course Repository:** https://github.com/DataTalksClub/data-engineering-zoomcamp
 - **Course Website:** https://datatalks.club/
-- **My GitHub:** https://github.com/YOUR_USERNAME
+- **My GitHub:** https://github.com/ahmadavar
 - **Homework Submissions:** https://courses.datatalks.club/de-zoomcamp-2026/
 
 ---
