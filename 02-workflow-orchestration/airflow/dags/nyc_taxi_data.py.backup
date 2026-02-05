@@ -1,0 +1,100 @@
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
+import requests
+import os
+
+default_args = {
+    'owner': 'ahmad',
+    'depends_on_past': False,
+    'start_date': datetime(2020, 1, 1),
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+
+dag = DAG(
+    'nyc_taxi_data_pipeline',
+    default_args=default_args,
+    description='Download NYC Taxi data - answers Q1',
+    schedule=None,
+    catchup=False,
+    tags=['homework', 'taxi', 'q1'],
+)
+
+def download_taxi_data(**context):
+    """Download NYC Taxi data - shows file size for Q1"""
+    taxi_type = context['dag_run'].conf.get('taxi_type', 'yellow')
+    year = context['dag_run'].conf.get('year', 2020)
+    month = context['dag_run'].conf.get('month', 12)
+    
+    month_str = f"{month:02d}"
+    filename = f"{taxi_type}_tripdata_{year}-{month_str}.csv"
+    url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{taxi_type}/{filename}"
+    
+    download_dir = "/tmp/taxi_data"
+    os.makedirs(download_dir, exist_ok=True)
+    filepath = f"{download_dir}/{filename}"
+    
+    print(f"📥 Downloading: {url}")
+    print(f"📁 Saving to: {filepath}")
+    
+    try:
+        response = requests.get(url, stream=True, timeout=300)
+        response.raise_for_status()
+        
+        with open(filepath, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        
+        file_size_bytes = os.path.getsize(filepath)
+        file_size_mb = file_size_bytes / (1024 * 1024)
+        
+        print("=" * 70)
+        print(f"✅ HOMEWORK Q1 ANSWER:")
+        print(f"📊 File: {filename}")
+        print(f"📊 File size: {file_size_mb:.2f} MB ({file_size_bytes:,} bytes)")
+        print("=" * 70)
+        
+        with open(filepath, 'r') as f:
+            row_count = sum(1 for line in f) - 1
+        
+        print(f"📈 Total rows: {row_count:,}")
+        
+        context['task_instance'].xcom_push(key='filename', value=filename)
+        context['task_instance'].xcom_push(key='file_size_mb', value=file_size_mb)
+        context['task_instance'].xcom_push(key='row_count', value=row_count)
+        
+        return {'filename': filename, 'file_size_mb': file_size_mb, 'row_count': row_count}
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        raise
+
+def print_summary(**context):
+    ti = context['task_instance']
+    filename = ti.xcom_pull(task_ids='download_data', key='filename')
+    file_size = ti.xcom_pull(task_ids='download_data', key='file_size_mb')
+    row_count = ti.xcom_pull(task_ids='download_data', key='row_count')
+    
+    print("=" * 70)
+    print("📊 NYC TAXI DATA SUMMARY")
+    print("=" * 70)
+    print(f"📄 File: {filename}")
+    print(f"💾 Size: {file_size:.2f} MB")
+    print(f"📈 Rows: {row_count:,}")
+    print("=" * 70)
+
+download_task = PythonOperator(
+    task_id='download_data',
+    python_callable=download_taxi_data,
+    provide_context=True,
+    dag=dag,
+)
+
+summary_task = PythonOperator(
+    task_id='print_summary',
+    python_callable=print_summary,
+    provide_context=True,
+    dag=dag,
+)
+
+download_task >> summary_task
