@@ -2,7 +2,7 @@
 
 Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) by DataTalks.Club.
 
-**Student:** Ahmad Avar  
+**Student:** Ahmad Naggayev
 **Start Date:** January 2026  
 **Environment:** GCP VM + Cloud-based development
 
@@ -13,7 +13,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | Module | Status | Homework | Topics |
 |--------|--------|----------|--------|
 | [1. Docker & SQL](./01-docker-sql/) | ✅ Complete | ✅ [Submitted](./01-docker-sql/README.md) | Docker, PostgreSQL, SQL queries |
-| 2. Workflow Orchestration | 🔄 In Progress | ⏳ Pending | Kestra, data pipelines |
+| 2. Workflow Orchestration | ✅ Complete | ✅ Submitted | Airflow, data pipelines |  
 | 3. Data Warehouse | ⏳ Not Started | ⏳ Pending | BigQuery, dbt |
 | 4. Analytics Engineering | ⏳ Not Started | ⏳ Pending | Advanced dbt |
 | 5. Batch Processing | ⏳ Not Started | ⏳ Pending | Apache Spark |
@@ -127,9 +127,12 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - **Key Skills:** Docker, PostgreSQL, SQL, pandas, data loading
 
 ### Module 2: Workflow Orchestration 🔄
-- (In progress)
-
----
+- Learned further Docker containerization
+- Set up Airflow
+- Created DAGS in Airflow and maintained orchestration of three workflow
+- Created trigger config to two newly created Airflow workflows
+- Answered 7 homework questions
+- **Key Skills:** Airflow, DAG, Triggers. 
 
 ## 🔗 Useful Links
 
@@ -175,4 +178,4 @@ MIT License - Feel free to use this repository as a reference for your own learn
 
 ---
 
-**Last Updated:** January 31, 2026
+**Last Updated:** February 5th, 2026
