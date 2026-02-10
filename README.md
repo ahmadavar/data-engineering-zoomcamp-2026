@@ -14,7 +14,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 |--------|--------|----------|--------|
 | [1. Docker & SQL](./01-docker-sql/) | ✅ Complete | ✅ [Submitted](./01-docker-sql/README.md) | Docker, PostgreSQL, SQL queries |
 | 2. Workflow Orchestration | ✅ Complete | ✅ Submitted | Airflow, data pipelines |  
-| 3. Data Warehouse | ⏳ Not Started | ⏳ Pending | BigQuery, dbt |
+| 3. Data Warehouse | ⏳ In Progress | ⏳ In local machine, havent pushed to remote repo yet | BigQuery, dbt |
 | 4. Analytics Engineering | ⏳ Not Started | ⏳ Pending | Advanced dbt |
 | 5. Batch Processing | ⏳ Not Started | ⏳ Pending | Apache Spark |
 | 6. Streaming | ⏳ Not Started | ⏳ Pending | Kafka |
