@@ -13,8 +13,8 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | Module | Status | Homework | Topics |
 |--------|--------|----------|--------|
 | [1. Docker & SQL](./01-docker-sql/) | ✅ Complete | ✅ [Submitted](./01-docker-sql/README.md) | Docker, PostgreSQL, SQL queries |
-| 2. Workflow Orchestration | ✅ Complete | ✅ Submitted | Airflow, data pipelines |  
-| 3. Data Warehouse | ⏳ In Progress | ⏳ In local machine, havent pushed to remote repo yet | BigQuery, dbt |
+| [2. Workflow Orchestration](./02-workflow-orchestration/) | ✅ Complete | ✅ [Submitted](./02-workflow-orchestration/README.md) | Airflow, ETL pipelines, scheduling |
+| [3. Data Warehouse](./03-data-warehouse/) | ✅ Complete | ✅ [Submitted](./03-data-warehouse/README.md) | BigQuery, partitioning, clustering |
 | 4. Analytics Engineering | ⏳ Not Started | ⏳ Pending | Advanced dbt |
 | 5. Batch Processing | ⏳ Not Started | ⏳ Pending | Apache Spark |
 | 6. Streaming | ⏳ Not Started | ⏳ Pending | Kafka |
@@ -62,8 +62,11 @@ data-engineering-zoomcamp-2026/
 ├── 02-workflow-orchestration/         # 🔄 Module 2: Kestra
 │   └── (coming soon)
 │
-├── 03-data-warehouse/                 # ⏳ Module 3: BigQuery & dbt
-│   └── (coming soon)
+├── 03-data-warehouse/                 # ✅ Module 3: BigQuery & dbt
+│   ├── README.md                      # Homework answers
+│   ├── RESULTS_SUMMARY.md             # Performance insights
+│   ├── setup.sql                      # Table creation
+│   └── q*.sql                         # Question queries
 │
 ├── 04-analytics-engineering/          # ⏳ Module 4: Advanced dbt
 │   └── (coming soon)
@@ -127,12 +130,26 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - **Key Skills:** Docker, PostgreSQL, SQL, pandas, data loading
 
 ### Module 2: Workflow Orchestration 🔄
+<<<<<<< HEAD
 - Learned further Docker containerization
 - Set up Airflow
 - Created DAGS in Airflow and maintained orchestration of three workflow
 - Created trigger config to two newly created Airflow workflows
 - Answered 7 homework questions
 - **Key Skills:** Airflow, DAG, Triggers. 
+=======
+- (In progress)
+
+### Module 3: Data Warehouse ✅
+- Set up GCS bucket with 326MB yellow taxi data
+- Created 4 BigQuery table types: external, materialized, partitioned, partitioned+clustered
+- Answered 9 homework questions (20.3M records analyzed)
+- Achieved 91% data scan reduction through partitioning
+- Demonstrated columnar storage benefits in BigQuery
+- **Key Skills:** BigQuery, GCS, SQL optimization, partitioning, clustering
+
+---
+>>>>>>> b5888e4 (Update README: Mark Module 3 Data Warehouse as complete)
 
 ## 🔗 Useful Links
 
@@ -178,4 +195,8 @@ MIT License - Feel free to use this repository as a reference for your own learn
 
 ---
 
+<<<<<<< HEAD
 **Last Updated:** February 5th, 2026
+=======
+**Last Updated:** February 13, 2026
+>>>>>>> b5888e4 (Update README: Mark Module 3 Data Warehouse as complete)
