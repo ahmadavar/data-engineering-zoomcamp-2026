@@ -59,8 +59,12 @@ data-engineering-zoomcamp-2026/
 │   ├── scripts/                       # Python scripts
 │   └── sql/                           # SQL queries
 │
-├── 02-workflow-orchestration/         # 🔄 Module 2: Kestra
-│   └── (coming soon)
+├── 02-workflow-orchestration/         # ✅ Module 2: Airflow
+│   ├── README.md                      # Homework answers
+│   └── airflow/                       # Airflow setup
+│       ├── dags/                      # DAG definitions
+│       ├── docker-compose.yml         # Airflow containers
+│       └── scripts/                   # ETL scripts
 │
 ├── 03-data-warehouse/                 # ✅ Module 3: BigQuery & dbt
 │   ├── README.md                      # Homework answers
@@ -129,16 +133,14 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Answered 7 homework questions
 - **Key Skills:** Docker, PostgreSQL, SQL, pandas, data loading
 
-### Module 2: Workflow Orchestration 🔄
-<<<<<<< HEAD
-- Learned further Docker containerization
-- Set up Airflow
-- Created DAGS in Airflow and maintained orchestration of three workflow
-- Created trigger config to two newly created Airflow workflows
-- Answered 7 homework questions
-- **Key Skills:** Airflow, DAG, Triggers. 
-=======
-- (In progress)
+### Module 2: Workflow Orchestration ✅
+- Set up Apache Airflow with Docker Compose
+- Built ETL pipelines for NYC Yellow & Green Taxi data (2019-2021)
+- Processed 26.4M total rows (24.6M Yellow + 1.7M Green)
+- Implemented dynamic DAGs with variables and templating
+- Configured timezone support (America/New_York)
+- Answered 6 homework questions
+- **Key Skills:** Airflow, DAGs, ETL orchestration, backfilling, scheduling
 
 ### Module 3: Data Warehouse ✅
 - Set up GCS bucket with 326MB yellow taxi data
@@ -179,13 +181,17 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 
 ## 📈 Progress Tracking
 
-**Start Date:** January 27, 2026  
-**Module 1 Completion:** January 31, 2026  
-**Current Focus:** Module 2 (Workflow Orchestration)
+**Start Date:** January 27, 2026
+**Module 1 Completion:** January 31, 2026
+**Module 2 Completion:** February 6, 2026
+**Module 3 Completion:** February 13, 2026
+**Current Focus:** Module 4 (Analytics Engineering)
 
 **Time Investment:**
-- Module 1: ~8 hours (setup + homework)
-- Total: ~8 hours
+- Module 1: ~8 hours (Docker + SQL)
+- Module 2: ~12 hours (Airflow + orchestration)
+- Module 3: ~10 hours (BigQuery + optimization)
+- Total: ~30 hours
 
 ---
 
