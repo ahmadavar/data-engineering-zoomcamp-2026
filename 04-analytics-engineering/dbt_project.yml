@@ -1,0 +1,19 @@
+name: 'taxi_rides_ny'
+version: '1.0.0'
+
+profile: 'taxi_rides_ny'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+models:
+  taxi_rides_ny:
+    +materialized: view
