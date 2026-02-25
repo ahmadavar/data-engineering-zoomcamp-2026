@@ -15,7 +15,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | [1. Docker & SQL](./01-docker-sql/) | ✅ Complete | ✅ [Submitted](./01-docker-sql/README.md) | Docker, PostgreSQL, SQL queries |
 | [2. Workflow Orchestration](./02-workflow-orchestration/) | ✅ Complete | ✅ [Submitted](./02-workflow-orchestration/README.md) | Airflow, ETL pipelines, scheduling |
 | [3. Data Warehouse](./03-data-warehouse/) | ✅ Complete | ✅ [Submitted](./03-data-warehouse/README.md) | BigQuery, partitioning, clustering |
-| 4. Analytics Engineering | ⏳ Not Started | ⏳ Pending | Advanced dbt |
+| [4. Analytics Engineering](./04-analytics-engineering/) | ✅ Complete | ✅ [Submitted](./04-analytics-engineering/README.md) | dbt, staging models, fact tables, tests, lineage |
 | 5. Batch Processing | ⏳ Not Started | ⏳ Pending | Apache Spark |
 | 6. Streaming | ⏳ Not Started | ⏳ Pending | Kafka |
 
@@ -30,7 +30,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 
 ### Databases
 - **Relational:** PostgreSQL 17
-- **Data Warehouse:** BigQuery (upcoming)
+- **Data Warehouse:** BigQuery
 
 ### Languages & Tools
 - **Languages:** Python 3.12, SQL, Bash
@@ -72,8 +72,13 @@ data-engineering-zoomcamp-2026/
 │   ├── setup.sql                      # Table creation
 │   └── q*.sql                         # Question queries
 │
-├── 04-analytics-engineering/          # ⏳ Module 4: Advanced dbt
-│   └── (coming soon)
+├── 04-analytics-engineering/          # ✅ Module 4: dbt Analytics Engineering
+│   ├── README.md                      # Homework answers & documentation
+│   └── taxi_rides_ny/                 # dbt project
+│       ├── models/staging/            # stg_green, stg_yellow, stg_fhv
+│       ├── models/core/               # fact_trips, dim_zones, fct_monthly_zone_revenue
+│       ├── macros/                    # get_payment_type_description
+│       └── seeds/                     # taxi_zone_lookup.csv
 │
 ├── 05-batch/                          # ⏳ Module 5: Spark
 │   └── (coming soon)
@@ -150,6 +155,16 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Demonstrated columnar storage benefits in BigQuery
 - **Key Skills:** BigQuery, GCS, SQL optimization, partitioning, clustering
 
+### Module 4: Analytics Engineering ✅
+- Built full dbt project with staging, core, and seed layers
+- Created staging models for Green, Yellow, and FHV taxi data (2019-2020)
+- Built `fact_trips` unioning 28M+ records across service types
+- Built `fct_monthly_zone_revenue` for revenue analysis by zone/month
+- Implemented reusable macro for payment type descriptions
+- Wrote data quality tests (not_null, unique, accepted_values)
+- Generated dbt lineage documentation and DAG visualization
+- **Key Skills:** dbt Core, BigQuery adapter, macros, tests, lineage, materializations
+
 ---
 >>>>>>> b5888e4 (Update README: Mark Module 3 Data Warehouse as complete)
 
@@ -185,13 +200,15 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 **Module 1 Completion:** January 31, 2026
 **Module 2 Completion:** February 6, 2026
 **Module 3 Completion:** February 13, 2026
-**Current Focus:** Module 4 (Analytics Engineering)
+**Module 4 Completion:** February 25, 2026
+**Current Focus:** Module 5 (Batch Processing / Spark)
 
 **Time Investment:**
 - Module 1: ~8 hours (Docker + SQL)
 - Module 2: ~12 hours (Airflow + orchestration)
 - Module 3: ~10 hours (BigQuery + optimization)
-- Total: ~30 hours
+- Module 4: ~10 hours (dbt + analytics engineering)
+- Total: ~40 hours
 
 ---
 
@@ -201,8 +218,4 @@ MIT License - Feel free to use this repository as a reference for your own learn
 
 ---
 
-<<<<<<< HEAD
-**Last Updated:** February 5th, 2026
-=======
-**Last Updated:** February 13, 2026
->>>>>>> b5888e4 (Update README: Mark Module 3 Data Warehouse as complete)
+**Last Updated:** February 25, 2026

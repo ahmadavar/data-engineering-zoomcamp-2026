@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: staging
+    database: electric-cosine-485318-f9
+    schema: 03_warehouse
+    tables:
+      - name: green_tripdata_external
+      - name: yellow_tripdata_external
+      - name: fhv_tripdata_external
+
+models:
+  - name: stg_green_tripdata
+    description: "Staged green taxi trips"
+    columns:
+      - name: tripid
+        description: "Surrogate key"
+        data_tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null
+      - name: vendorid
+        data_tests:
+          - not_null
+      - name: payment_type
+        data_tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+              quote: false
+              config:
+                severity: warn
+
+  - name: stg_yellow_tripdata
+    description: "Staged yellow taxi trips"
+    columns:
+      - name: tripid
+        description: "Surrogate key"
+        data_tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null
+      - name: vendorid
+        data_tests:
+          - not_null
+      - name: payment_type
+        data_tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6]
+              quote: false
+              config:
+                severity: warn
