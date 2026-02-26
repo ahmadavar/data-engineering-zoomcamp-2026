@@ -18,6 +18,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | [4. Analytics Engineering](./04-analytics-engineering/) | ✅ Complete | ✅ [Submitted](./04-analytics-engineering/README.md) | dbt, staging models, fact tables, tests, lineage |
 | [5. Data Platforms](./05-data-platforms/) | ✅ Complete | ✅ [Submitted](./05-data-platforms/README.md) | Bruin, ELT pipelines, materialization, lineage |
 | [6. Batch Processing](./06-batch-spark/) | ✅ Complete | ✅ [Submitted](./06-batch-spark/README.md) | PySpark, DataFrames, Parquet, Spark UI |
+| [7. Stream Processing](./07-streaming/) | ✅ Complete | ✅ [Submitted](./07-streaming/README.md) | PyFlink, Redpanda, Kafka, session windows |
 
 ---
 
@@ -42,8 +43,8 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 ### Data Engineering Tools
 - **Data Platform:** Bruin (ELT pipelines, ingestion, transformation)
 - **Orchestration:** Kestra (upcoming)
-- **Processing:** Apache Spark (upcoming)
-- **Streaming:** Kafka (upcoming)
+- **Processing:** Apache Spark (PySpark)
+- **Streaming:** Redpanda + Apache Flink (PyFlink)
 - **Analytics:** dbt
 
 ---
@@ -84,7 +85,9 @@ data-engineering-zoomcamp-2026/
 ├── 05-data-platforms/                 # ✅ Module 5: Data Platforms with Bruin
 │   └── README.md                      # Homework answers & pipeline documentation
 │
-└── 06-batch-spark/                    # ✅ Module 6: Batch Processing with Spark
+├── 06-batch-spark/                    # ✅ Module 6: Batch Processing with Spark
+│
+└── 07-streaming/                      # ✅ Module 7: Stream Processing with PyFlink
     └── (coming soon)
 ```
 
@@ -166,6 +169,16 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Generated dbt lineage documentation and DAG visualization
 - **Key Skills:** dbt Core, BigQuery adapter, macros, tests, lineage, materializations
 
+### Module 7: Stream Processing with PyFlink ✅
+- Set up Redpanda (Kafka-compatible) + Flink + Postgres with Docker Compose
+- Created `green-trips` Kafka topic using `rpk` CLI
+- Built Kafka producer sending 476K green taxi trips as JSON (194 seconds)
+- Built PyFlink session window job consuming from Kafka topic
+- Applied 5-minute session windows with watermark on `lpep_dropoff_datetime`
+- Found longest session streak: East Harlem South → East Harlem North (1,680 trips)
+- Answered 5 homework questions (Q5 worth 2 points)
+- **Key Skills:** PyFlink, Redpanda, Kafka, session windows, watermarks, Docker Compose
+
 ### Module 6: Batch Processing with Spark ✅
 - Installed Java 17 + PySpark 4.1.1
 - Read 4M+ NYC yellow taxi rows (Nov 2025) into Spark DataFrame
@@ -226,7 +239,8 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 **Module 4 Completion:** February 25, 2026
 **Module 5 Completion:** February 26, 2026
 **Module 6 Completion:** February 26, 2026
-**Current Focus:** Module 7 (Streaming / Kafka)
+**Module 7 Completion:** February 26, 2026
+**Current Focus:** Course Complete 🎉
 
 **Time Investment:**
 - Module 1: ~8 hours (Docker + SQL)
@@ -235,7 +249,8 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Module 4: ~10 hours (dbt + analytics engineering)
 - Module 5: ~3 hours (Bruin + data platforms)
 - Module 6: ~1 hour (PySpark + batch processing)
-- Total: ~44 hours
+- Module 7: ~2 hours (PyFlink + streaming)
+- Total: ~46 hours
 
 ---
 
