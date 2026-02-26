@@ -17,7 +17,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | [3. Data Warehouse](./03-data-warehouse/) | ✅ Complete | ✅ [Submitted](./03-data-warehouse/README.md) | BigQuery, partitioning, clustering |
 | [4. Analytics Engineering](./04-analytics-engineering/) | ✅ Complete | ✅ [Submitted](./04-analytics-engineering/README.md) | dbt, staging models, fact tables, tests, lineage |
 | [5. Data Platforms](./05-data-platforms/) | ✅ Complete | ✅ [Submitted](./05-data-platforms/README.md) | Bruin, ELT pipelines, materialization, lineage |
-| 6. Streaming | ⏳ Not Started | ⏳ Pending | Kafka |
+| [6. Batch Processing](./06-batch-spark/) | ✅ Complete | ✅ [Submitted](./06-batch-spark/README.md) | PySpark, DataFrames, Parquet, Spark UI |
 
 ---
 
@@ -84,7 +84,7 @@ data-engineering-zoomcamp-2026/
 ├── 05-data-platforms/                 # ✅ Module 5: Data Platforms with Bruin
 │   └── README.md                      # Homework answers & pipeline documentation
 │
-└── 06-streaming/                      # ⏳ Module 6: Kafka
+└── 06-batch-spark/                    # ✅ Module 6: Batch Processing with Spark
     └── (coming soon)
 ```
 
@@ -166,6 +166,16 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Generated dbt lineage documentation and DAG visualization
 - **Key Skills:** dbt Core, BigQuery adapter, macros, tests, lineage, materializations
 
+### Module 6: Batch Processing with Spark ✅
+- Installed Java 17 + PySpark 4.1.1
+- Read 4M+ NYC yellow taxi rows (Nov 2025) into Spark DataFrame
+- Repartitioned to 4 partitions → avg 25MB per Parquet file
+- Filtered trips by date, calculated duration in hours with `unix_timestamp`
+- Joined with zone lookup to find least frequent pickup zone
+- Monitored job execution via Spark UI (port 4040)
+- Answered 6 homework questions
+- **Key Skills:** PySpark, DataFrames, Parquet, repartitioning, Spark UI, distributed joins
+
 ### Module 5: Data Platforms with Bruin ✅
 - Built end-to-end ELT pipeline: ingestion → staging → reporting
 - Ingested 5.4M NYC yellow taxi rows (Jan-Feb 2022) from public Parquet files
@@ -215,7 +225,8 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 **Module 3 Completion:** February 13, 2026
 **Module 4 Completion:** February 25, 2026
 **Module 5 Completion:** February 26, 2026
-**Current Focus:** Module 6 (Streaming / Kafka)
+**Module 6 Completion:** February 26, 2026
+**Current Focus:** Module 7 (Streaming / Kafka)
 
 **Time Investment:**
 - Module 1: ~8 hours (Docker + SQL)
@@ -223,7 +234,8 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Module 3: ~10 hours (BigQuery + optimization)
 - Module 4: ~10 hours (dbt + analytics engineering)
 - Module 5: ~3 hours (Bruin + data platforms)
-- Total: ~43 hours
+- Module 6: ~1 hour (PySpark + batch processing)
+- Total: ~44 hours
 
 ---
 
