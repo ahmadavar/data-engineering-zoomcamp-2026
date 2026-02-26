@@ -1,0 +1,18 @@
+# Generated files - exclude from language stats
+*.pyc linguist-generated=true
+*.log linguist-generated=true
+*.lock linguist-generated=true
+*.msgpack linguist-generated=true
+*.gpickle linguist-generated=true
+
+# Data files - exclude from language stats
+*.csv linguist-vendored=true
+
+# dbt generated docs - exclude
+04-analytics-engineering/target/ linguist-generated=true
+
+# Ensure real languages are detected and shown
+*.sql linguist-detectable=true
+*.py linguist-detectable=true
+*.yml linguist-detectable=true
+*.yaml linguist-detectable=true
