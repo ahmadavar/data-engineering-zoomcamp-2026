@@ -177,7 +177,7 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Applied 5-minute session windows with watermark on `lpep_dropoff_datetime`
 - Found longest session streak: East Harlem South → East Harlem North (1,680 trips)
 - Answered 5 homework questions (Q5 worth 2 points)
-- **Key Skills:** PyFlink, Redpanda, Kafka, session windows, watermarks, Docker Compose
+- **Key Skills:** Kafka concepts (topics, producers, consumers), Redpanda, PyFlink, session windows, watermarks, Docker Compose
 
 ### Module 6: Batch Processing with Spark ✅
 - Installed Java 17 + PySpark 4.1.1
@@ -240,7 +240,6 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 **Module 5 Completion:** February 26, 2026
 **Module 6 Completion:** February 26, 2026
 **Module 7 Completion:** February 26, 2026
-**Current Focus:** Course Complete 🎉
 
 **Time Investment:**
 - Module 1: ~8 hours (Docker + SQL)

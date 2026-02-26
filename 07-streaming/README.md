@@ -1,17 +1,36 @@
-# Module 7: Stream Processing with PyFlink
+# Module 7: Stream Processing with Kafka + PyFlink
 
 ## Overview
 
-This module covers real-time stream processing using Apache Flink (PyFlink) with Redpanda as a Kafka-compatible message broker.
+This module covers real-time stream processing using the two-layer streaming architecture:
+
+- **Kafka (Redpanda)** — the message broker / transport layer. Receives, stores, and delivers messages via topics.
+- **PyFlink (Apache Flink)** — the stream processor / computation layer. Reads from Kafka, applies session windows, and writes results to Postgres.
+
+Redpanda is a drop-in Kafka replacement (same API, no JVM). We use it here instead of Kafka for easier local setup — but everything would work identically with a real Kafka cluster.
+
+```
+Producer (kafka-python)
+        │  publishes JSON messages
+        ▼
+  Redpanda / Kafka              ← Message Broker
+  [green-trips topic]
+        │  streams events
+        ▼
+  PyFlink Session Window Job    ← Stream Processor
+        │  writes aggregated results
+        ▼
+     PostgreSQL                 ← Sink
+```
 
 ## Stack
 
 | Component | Tool | Purpose |
 |-----------|------|---------|
-| Message Broker | Redpanda v24.2.18 | Kafka-compatible streaming platform |
-| Stream Processor | Apache Flink 1.16 (PyFlink) | Stateful stream processing |
+| Message Broker | Kafka / Redpanda v24.2.18 | Durable topic-based message transport |
+| Stream Processor | Apache Flink 1.16 (PyFlink) | Stateful stream processing & windowing |
 | Sink | PostgreSQL 14 | Landing zone for processed results |
-| Producer | kafka-python | Sending taxi data to topics |
+| Producer | kafka-python | Publishing taxi trip events to Kafka topic |
 
 ## Setup
 
