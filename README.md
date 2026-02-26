@@ -16,7 +16,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | [2. Workflow Orchestration](./02-workflow-orchestration/) | ✅ Complete | ✅ [Submitted](./02-workflow-orchestration/README.md) | Airflow, ETL pipelines, scheduling |
 | [3. Data Warehouse](./03-data-warehouse/) | ✅ Complete | ✅ [Submitted](./03-data-warehouse/README.md) | BigQuery, partitioning, clustering |
 | [4. Analytics Engineering](./04-analytics-engineering/) | ✅ Complete | ✅ [Submitted](./04-analytics-engineering/README.md) | dbt, staging models, fact tables, tests, lineage |
-| 5. Batch Processing | ⏳ Not Started | ⏳ Pending | Apache Spark |
+| [5. Data Platforms](./05-data-platforms/) | ✅ Complete | ✅ [Submitted](./05-data-platforms/README.md) | Bruin, ELT pipelines, materialization, lineage |
 | 6. Streaming | ⏳ Not Started | ⏳ Pending | Kafka |
 
 ---
@@ -40,10 +40,11 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 - **IDE:** VS Code with Remote-SSH
 
 ### Data Engineering Tools
+- **Data Platform:** Bruin (ELT pipelines, ingestion, transformation)
 - **Orchestration:** Kestra (upcoming)
 - **Processing:** Apache Spark (upcoming)
 - **Streaming:** Kafka (upcoming)
-- **Analytics:** dbt (upcoming)
+- **Analytics:** dbt
 
 ---
 
@@ -80,8 +81,8 @@ data-engineering-zoomcamp-2026/
 │       ├── macros/                    # get_payment_type_description
 │       └── seeds/                     # taxi_zone_lookup.csv
 │
-├── 05-batch/                          # ⏳ Module 5: Spark
-│   └── (coming soon)
+├── 05-data-platforms/                 # ✅ Module 5: Data Platforms with Bruin
+│   └── README.md                      # Homework answers & pipeline documentation
 │
 └── 06-streaming/                      # ⏳ Module 6: Kafka
     └── (coming soon)
@@ -165,8 +166,20 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 - Generated dbt lineage documentation and DAG visualization
 - **Key Skills:** dbt Core, BigQuery adapter, macros, tests, lineage, materializations
 
+### Module 5: Data Platforms with Bruin ✅
+- Built end-to-end ELT pipeline: ingestion → staging → reporting
+- Ingested 5.4M NYC yellow taxi rows (Jan-Feb 2022) from public Parquet files
+- Applied `time_interval` incremental strategy with deduplication via `ROW_NUMBER()`
+- Cleaned data in staging layer (negative fares, tips, totals filtered out)
+- Added quality checks: `not_null`, `non_negative`, custom `no_future_trips`
+- Joined with payment lookup seed for human-readable payment type names
+- Used pipeline variables (`--var`) to parameterize taxi type at runtime
+- Deployed to BigQuery using `--full-refresh` for clean initial loads
+- Visualized asset lineage with `bruin lineage`
+- Answered 7 homework questions
+- **Key Skills:** Bruin CLI, ELT pipelines, materialization strategies, data quality, lineage, BigQuery
+
 ---
->>>>>>> b5888e4 (Update README: Mark Module 3 Data Warehouse as complete)
 
 ## 🔗 Useful Links
 
@@ -201,14 +214,16 @@ gcloud compute instances stop de-zoomcamp-vm --zone=us-west1-a
 **Module 2 Completion:** February 6, 2026
 **Module 3 Completion:** February 13, 2026
 **Module 4 Completion:** February 25, 2026
-**Current Focus:** Module 5 (Batch Processing / Spark)
+**Module 5 Completion:** February 26, 2026
+**Current Focus:** Module 6 (Streaming / Kafka)
 
 **Time Investment:**
 - Module 1: ~8 hours (Docker + SQL)
 - Module 2: ~12 hours (Airflow + orchestration)
 - Module 3: ~10 hours (BigQuery + optimization)
 - Module 4: ~10 hours (dbt + analytics engineering)
-- Total: ~40 hours
+- Module 5: ~3 hours (Bruin + data platforms)
+- Total: ~43 hours
 
 ---
 
@@ -218,4 +233,4 @@ MIT License - Feel free to use this repository as a reference for your own learn
 
 ---
 
-**Last Updated:** February 25, 2026
+**Last Updated:** February 26, 2026
