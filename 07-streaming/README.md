@@ -46,6 +46,24 @@ You need both because Kafka absorbs the firehose of events reliably, while Flink
 
 ---
 
+## Flink UI
+
+The Flink dashboard shows running jobs, parallelism, task managers, and exceptions in real time.
+
+> **Note:** The UI is not publicly hosted — it runs locally inside Docker. To view it, follow the setup steps below, then access it at `http://localhost:8081`.
+
+![Flink UI](pyflink/flink-ui.png)
+
+**If you're on a remote server (e.g. GCP)**, use an SSH tunnel to forward the port to your laptop:
+
+```bash
+ssh -L 8081:localhost:8081 <your-user>@<your-server-ip>
+```
+
+Then open `http://localhost:8081` in your browser. Keep the terminal open while using the UI.
+
+---
+
 ## Setup
 
 ```bash
