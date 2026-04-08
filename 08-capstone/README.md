@@ -119,6 +119,16 @@ DAG file: [`airflow/dags/loanmatch_pipeline.py`](./airflow/dags/loanmatch_pipeli
 
 ---
 
+## Streaming
+
+Streaming was not implemented in this capstone pipeline. The intended design was to stream real-time lender rate and offer events from partner APIs into a Kafka topic, then consume and aggregate them with PyFlink — enabling live lender availability tracking rather than nightly batch loads.
+
+This could not be completed due to regulatory and partnership approval timelines. Four lender partner API applications were submitted (Upstart, Engine by Even Financial, LendingTree, Credible) but approvals were still pending at submission time. Without real lender API access, building a streaming pipeline over synthetic data was not meaningful for a production application.
+
+The streaming skillset (Kafka producers/consumers, PyFlink session windows, Redpanda) was built and demonstrated in [Module 7](../07-streaming/) of this course.
+
+---
+
 ## Transformations (dbt)
 
 **Staging layer** (materialized as views — lightweight, always fresh):
