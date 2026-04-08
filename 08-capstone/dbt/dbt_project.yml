@@ -1,0 +1,56 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'loanmatch_dbt'
+version: '1.0.0'
+
+# Project documentation (appears on dbt docs landing page)
+config-version: 2
+
+vars:
+  project_name: "LoanMatch AI — Data Pipeline"
+  project_description: >
+    Analytics pipeline for LoanMatch AI, a loan matching platform serving
+    gig workers, freelancers, and self-employed professionals.
+
+    This pipeline transforms raw applicant match results into actionable
+    insights across two layers:
+
+    • Staging: cleaned and enriched source data (match_results, lenders)
+    • Marts: business-ready tables tracking lender performance and
+      applicant funnel conversion by credit band, employment type, and loan purpose.
+
+    Stack: PostgreSQL (Railway) · dbt Core 1.11 · Python 3.12
+    Live app: https://www.loanmatchai.app
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'loanmatch_dbt'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
+models:
+  loanmatch_dbt:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

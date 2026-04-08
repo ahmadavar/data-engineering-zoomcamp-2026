@@ -19,6 +19,7 @@ Complete coursework for the [Data Engineering Zoomcamp](https://github.com/DataT
 | [5. Data Platforms](./05-data-platforms/) | ✅ Complete | ✅ [Submitted](./05-data-platforms/README.md) | Bruin, ELT pipelines, materialization, lineage |
 | [6. Batch Processing](./06-batch-spark/) | ✅ Complete | ✅ [Submitted](./06-batch-spark/README.md) | PySpark, DataFrames, Parquet, Spark UI |
 | [7. Stream Processing](./07-streaming/) | ✅ Complete | ✅ [Submitted](./07-streaming/README.md) | PyFlink, Redpanda, Kafka, session windows |
+| [8. Capstone Project](./08-capstone/) | ✅ Complete | ✅ [Submitted](./08-capstone/README.md) | LoanMatch AI — Airflow, GCS, BigQuery, dbt, Looker Studio |
 
 ---
 
